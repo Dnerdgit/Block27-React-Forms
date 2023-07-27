@@ -18,7 +18,7 @@ export default function Authenticate() {
       } catch (error) {
         setError(jsonResponse.error);
       }
-  }
+    }
 
     return (
       <div>

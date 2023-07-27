@@ -14,8 +14,13 @@ export default function SignUpForm() {
         //console.log("Not cleared");
         try {
             const response = await fetch("https://fsa-jwt-practice.herokuapp.com/signup"
-            , {});
-            
+            , {
+                method: POST,
+                body: JSON.stringify(
+                    {username},
+                    {password})
+            });
+
             if (response.ok) {
                 const jsonResponse = await response.json();
                 setToken(jsonResponse.token)
@@ -33,7 +38,7 @@ export default function SignUpForm() {
             <form onSubmit={handleSubmit}>
                 {error && <p>{error}</p>}
                 <label>
-                    Username: 
+                    Username: {" "}
                     <input 
                         type="text"
                         value={username} 
@@ -41,14 +46,16 @@ export default function SignUpForm() {
                 </label>
                 <br/>
                 <label>
-                    Password: 
+                    Password: {" "}
                     <input 
                         type="password" 
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <br/>
-                <button>Submit</button>
+                <button
+                    type="submit">Submit
+                    </button>
             </form>
 
         </>
