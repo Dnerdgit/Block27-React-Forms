@@ -14,11 +14,12 @@ export default function SignUpForm() {
         //console.log("Not cleared");
         try {
             const response = await fetch("https://fsa-jwt-practice.herokuapp.com/signup"
-            );
+            , {});
+            
             if (response.ok) {
                 const jsonResponse = await response.json();
                 setToken(jsonResponse.token)
-                console.log(jsonResponse);
+                //console.log(jsonResponse);
             }
         } catch (error) {
             setError(error.message);
