@@ -53,6 +53,7 @@ export default function SignUpForm() {
                         onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <br/>
+                <br/>
                 <button
                     type="submit">Submit
                     </button>
